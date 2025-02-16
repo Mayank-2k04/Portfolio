@@ -1,9 +1,9 @@
 import smtplib, ssl
-
+import os
 host = "smtp.gmail.com"
 port = 465
 user = "pythonsendsmail8@gmail.com"
-pa = "jnaz cbei djzn vzan"
+pa = os.getenv("PYTHONEMAILPASS")
 sslcontext = ssl.create_default_context()
 def sendemail(message,user_email):
     message = f"From: Mayank <{user}>\nTo: {user.split('@')[0]} <{user}>\nSubject: Message from {user_email}\nUser email: {user_email}\n{message}"
