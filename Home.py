@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 
-st.set_page_config(layout="wide")
+st.set_page_config("Home",layout="wide")
 col1, col2 = st.columns([0.8,1.2])
 
 with col1:
