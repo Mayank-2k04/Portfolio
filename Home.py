@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(layout="wide")
 
-col1, col2 = st.columns(2)
+st.set_page_config(layout="wide")
+col1, col2 = st.columns([0.8,1.2])
 
 with col1:
-    st.image("images/myphoto.jpeg")
+    st.image("images/myphoto.jpeg", width=550)
 
 with col2:
     st.title("Mayank Kapoor")
@@ -21,21 +21,25 @@ with col2:
            cleaning appointment system and a secure login solution for college websites.\
             Beyond academics, I am part of an international team that builds RC planes\
              for global competitions, where I oversee aerodynamics and manufacturing. \
-             This hands-on experience\
-              complements my technical expertise and fuels my passion for engineering.
-    """
+             """
     st.info(content)
-st.info("Below are some of the pyhon projects I have build. Feel free to contact me!")
+st.info("Below are some of the pyhon projects built by me !!! Feel free to contact me.")
 # Add link to contact me page
 
 df = pd.read_csv("data.csv",sep=";")
 
-col3, col4 = st.columns(2)
+col3, space, col4 = st.columns([1.5, 0.5, 1.5])
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image(f"images/{index+1}.png")
+        st.link_button(label="Source Code",url=row["url"])
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image(f"images/{index + 1}.png")
+        st.link_button(label="Source Code", url=row["url"])
