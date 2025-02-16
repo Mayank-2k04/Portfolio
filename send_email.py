@@ -11,7 +11,7 @@ def sendemail(message,user_email):
         with smtplib.SMTP_SSL(host, port, context=sslcontext) as server:
             server.login(user,pa)
             server.sendmail(user,user,message)
-        print("Email sent")
-    except Exception as e:
-        print(e)
+        return True
+    except Exception:
+        return False
 
