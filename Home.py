@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+#run using -> streamlit run Home.py
 
 st.set_page_config("Home",layout="wide")
 col1, col2 = st.columns([0.8,1.2])
@@ -28,18 +29,26 @@ st.info("Below are some of the pyhon projects built by me !!! Feel free to conta
 
 df = pd.read_csv("data.csv",sep=";")
 
-col3, space, col4 = st.columns([1.5, 0.5, 1.5])
+col3, space, col4 = st.columns([1.5, 0.1, 1.5])
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image(f"images/{index+1}.png")
-        st.link_button(label="Source Code",url=row["url"])
+        url = row["url"]
+        if url != "In progress":
+            st.link_button(label="Source Code",url=url)
+        else:
+            st.link_button(label=url,url="")
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image(f"images/{index + 1}.png")
-        st.link_button(label="Source Code", url=row["url"])
+        url = row["url"]
+        if url != "In progress":
+            st.link_button(label="Source Code", url=url)
+        else:
+            st.link_button(label=url,url="")

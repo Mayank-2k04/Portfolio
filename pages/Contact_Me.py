@@ -2,7 +2,7 @@ import streamlit as st
 import send_email
 
 st.set_page_config(page_title="Contact Us",layout="centered")
-st.header("Contact Us")
+st.header("Contact Me")
 with st.form(key="email_form"):
     emailId = st.text_input("Your Email Address : ",key="eid",)
     mess = st.text_area("Enter Your Message : ", key="message")
