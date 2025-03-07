@@ -24,7 +24,7 @@ with col2:
              for global competitions, where I oversee aerodynamics and manufacturing. \
              """
     st.info(content)
-st.info("Below are some of the pyhon projects built by me !!! Feel free to contact me.")
+st.info("Below are some of the python projects built by me !!! Feel free to contact me.")
 # Add link to contact me page
 
 df = pd.read_csv("data.csv",sep=";")
